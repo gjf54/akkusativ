@@ -1,0 +1,54 @@
+.v-pattern {
+    width: 80%;
+    height: auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    overflow: hidden;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.v-pattern__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.v-pattern_background_image {
+    position: relative;
+    min-height: 200px;
+}
+
+.v-pattern_background_image__image {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    filter: brightness(3) contrast(10) blur(2px);
+}
+
+.v-pattern_background_image__content {
+    position: relative;
+    z-index: 2;
+}
+
+.v-pattern_background_image__content > img {
+    max-width: 70%;
+    height: auto;
+}
+
+.v-pattern_transparent_block {
+    transition: all .5s ease;
+    opacity: 0.1;
+}
+
+.v-pattern_transparent_block:hover {
+    transition: all .5s ease;
+    opacity: 1;
+}
+

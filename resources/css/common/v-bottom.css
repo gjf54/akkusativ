@@ -1,0 +1,85 @@
+:root {
+    --bottom-background-color: #333;
+    --bottom-field-text-color: #AAA;
+    --bottom-field-hover-text-color: #EEE;
+    --bottom-field-margin: 15px;
+}
+
+.bottom {
+    width: 100%;
+    min-height: 150px;
+    background: var(--bottom-background-color);
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 20px 40px;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.bottom__logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    height: 150px;
+}
+
+.bottom__logo img {
+    transition: all 1s ease;
+    position: relative;
+    border-radius: 20px;
+    height: 80%;
+    width: auto;
+}
+
+.bottom__logo img:hover {
+    transition: all .5s ease;
+    transform: scale(1.1);
+}
+
+.bottom__fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom__field {
+    transition: all ease 0.5s;
+    color: var(--bottom-field-text-color);
+    margin-top: var(--bottom-field-margin);
+    margin-bottom: var(--bottom-field-margin);
+}
+
+.bottom__field:hover {
+    transition: all ease 0.5s;
+    color: var(--bottom-field-hover-text-color)
+}
+
+.bottom__field:first-child {
+    margin-top: 0;
+}
+
+.bottom__field:last-child {
+    margin-bottom: 0;
+}
+
+.bottom__field > div, .bottom__field a {
+    display: flex; 
+    flex-direction: row; 
+    gap: 5px; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.bottom__field img {
+    border-radius: 50%;
+    height: 20px;
+    width: auto;
+}
+
+
+

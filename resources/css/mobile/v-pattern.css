@@ -1,0 +1,5 @@
+@media screen and (max-width: 540px) {
+    .v-pattern_background_image__image {
+        filter: brightness(3) contrast(1) blur(1px);
+    }
+}

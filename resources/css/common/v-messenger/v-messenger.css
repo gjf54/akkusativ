@@ -1,0 +1,57 @@
+@import url('v-chat-bars.css');
+@import url('v-chat.css');
+
+
+:root {
+    --messanger-background-color: #EEE;
+    --messanger-header-color: #DDD;
+}
+
+.messenger {
+    transition: all .1s ease;
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    background: var(--messanger-background-color);
+}
+
+.messenger__header {
+    width: 100%;
+    height: 50px;
+    background: var(--messanger-header-color);
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid #444;
+    padding: 0 20px;
+    position: relative;
+}
+
+#messenger__logo {
+    max-height: 70%;
+    border-radius: 10px;
+    margin: auto;
+    left:0;
+    right: 0;
+    position: absolute;
+}
+
+#messenger__back {
+    transform: rotate(180deg);
+    max-height: 70%;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+#messenger__cross {
+    margin-left: auto;
+    opacity: 0.4;
+    height: 70%;
+    width: 40px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,17 @@
+@media screen and (max-width:900px) {
+  .v-form > div {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .v-form > div {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .v-form > div {
+    width: 100%;
+  }
+}

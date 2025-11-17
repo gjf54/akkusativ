@@ -1,0 +1,53 @@
+:root {
+    --button-border-color: #000;
+    --button-text-color: #000;
+    --button-hover-block-color: #000;
+    --button-hover-text-color: #FFF;
+}
+
+.btn {
+    padding: 8px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    color: var(--button-text-color);
+    border: solid 2px var(--button-border-color);
+    display: inline-block;
+    align-items: center;
+    align-self: flex-start;
+    text-align: center;
+    overflow: hidden;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.btn > span {
+    position: relative;
+    width: 100%;
+    z-index: 3;
+}
+
+.btn_animated_float_block::before {
+    transition: all .2s ease;
+    position: absolute;
+    content: "";
+    background: var(--button-hover-block-color);
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    opacity: 1;
+    transform: translateY(100%);
+    z-index: 1;
+}
+
+.btn_animated_float_block:hover {
+    transition: all .2s ease;
+    color: var(--button-hover-text-color);
+}
+
+.btn_animated_float_block:hover::before {
+    transition: all .2s ease;
+    transform: translateY(0);
+    opacity: 1;
+}

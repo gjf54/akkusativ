@@ -1,0 +1,13 @@
+@media screen and (max-width: 570px) {
+    .v-navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .v-navbar__items {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

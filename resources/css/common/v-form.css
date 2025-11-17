@@ -1,0 +1,68 @@
+:root {
+    --input-color: #EEE;
+    --input-border-size: 2px;
+    --input-padding: 4px;
+}
+
+.v-form {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #FFF;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.v-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 70%;
+}
+
+.v-form__title {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.v-form__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+}
+
+.v-form__group label {
+    font-size: 18px;
+}
+
+.v-form__group > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0; 
+}
+
+.v-form__group span[id^="input-"] {
+    padding: var(--input-padding) 10px;
+    position: relative;
+    background: var(--input-color);
+    max-height: 100%;
+    border: solid var(--input-border-size) var(--input-color);
+    font-weight: 500;
+}
+
+.v-form__input {
+    padding: var(--input-padding);
+    width: 100%;
+    border: solid var(--input-border-size) var(--input-color);
+}
+
+.v-form__submitings > .btn {
+    margin-top: 40px;
+    align-self: center;
+}
