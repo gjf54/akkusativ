@@ -18,16 +18,9 @@
 
 <script>
 import axios from 'axios';
-import MessangerChatsItem from './ChatBar.vue';
-
 
 export default {
   name: 'VChatBars',
-
-
-  components: {
-    'v-chat-bar': MessangerChatsItem,
-  },
 
   data() {
     return {

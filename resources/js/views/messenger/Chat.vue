@@ -29,7 +29,7 @@ import axios from 'axios';
 import auth from '../../auth';
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
-import { useEcho } from "@laravel/echo-vue";
+// import { useEcho } from "@laravel/echo-vue";
 
 
 const options = {
@@ -104,17 +104,19 @@ export default {
 
       if(this.message.length < 1) return;
 
+      this.chat.messages.push({
+        message: this.message,
+        user_login: this.login,
+      });
+      document.getElementById('last_message_link').click();
+
       axios.post('/api/messages', {
         user_login: auth.get_user(),
         chat_id: this.chat.id,
         message: this.message,
       })
       .then((response) => {
-        this.chat.messages.push({
-          message: this.message,
-          user_login: this.login,
-        });
-        document.getElementById('last_message_link').click();
+        
       })
       .catch(() => {
         console.log("Error. Data was not synchronized.");
