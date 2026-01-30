@@ -3,7 +3,7 @@
     <v-navbar></v-navbar>
     <v-pattern style="margin: auto;">
       <span>#403</span>
-      <span>Пошёл вон отсюда.</span>
+      <span>Не надо.</span>
     </v-pattern>
     <v-bottom></v-bottom>
   </div>
@@ -11,20 +11,6 @@
 
 <script>
 export default {
-  name: 'Akkusativ404',
-
-  data() {
-    return {
-      
-    };
-  },
-
-  mounted() {
-    
-  },
-
-  methods: {
-    
-  },
+  name: 'Akkusativ403',
 };
 </script>
