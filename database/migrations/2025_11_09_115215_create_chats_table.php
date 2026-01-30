@@ -20,8 +20,10 @@ return new class extends Migration
         });
 
         Schema::create('chat_user', function (Blueprint $table) {
-            $table->foreignIdFor(User::class)->index();
-            $table->foreignIdFor(Chat::class)->index();
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Chat::class);
+
+            $table->primary(['user_id', 'chat_id']);
         });
     }
 

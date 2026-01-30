@@ -20,7 +20,7 @@ class MessageResource extends JsonResource
             'id' => $this->id,
             'message' => Crypt::decrypt($this->message),
             'user_login' => $this->user_login,
-            'created_at' => $this->created_at->format('H:m, d.m.Y'),
+            'created_at' => $this->created_at->format('h:i, d.m.Y'),
         ];
     }
 }

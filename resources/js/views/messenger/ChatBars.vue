@@ -1,7 +1,7 @@
 <template>
   <div class="chat-bars">
     <v-search-bar
-      :search_href="'/api/user'"
+      :search_href="'/api/users'"
       @match="render_chat_with_login"
     ></v-search-bar>
     <template
@@ -18,16 +18,9 @@
 
 <script>
 import axios from 'axios';
-import MessangerChatsItem from './ChatBar.vue';
-
 
 export default {
   name: 'VChatBars',
-
-
-  components: {
-    'v-chat-bar': MessangerChatsItem,
-  },
 
   data() {
     return {
@@ -51,7 +44,7 @@ export default {
     },
 
     render_chat_with_login(login) {
-      axios.get('/api/chats/user/'+login)
+      axios.get('/api/chats/users/'+login)
       .then((response) => {
         if(response.status == 200) {
           return this.render_chat(response.data.data);

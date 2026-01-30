@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChatShowRequest;
+use App\Http\Requests\ChatStoreRequest;
 use App\Http\Resources\ChatResource;
 use App\Http\Resources\MessageResource;
 use App\Http\Resources\UserResource;
@@ -47,25 +49,17 @@ class ChatController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ChatStoreRequest $request)
     {
-        $request->validate([
-            'login' => 'required',
-        ]);
+        $c = $request->validated();
 
         $chat = Chat::create();
 
         $user = $request->user();
         $f_user = User::where('login', $request->login)->first();
-        
-        if(!$f_user) return response('User is not exists', 500);
 
-        try {
-            $chat->users()->attach($user->id);
-            $chat->users()->attach($f_user->id);
-        } catch (Exception $e) {
-            return response('Something went worng.', 500);
-        }
+        $chat->users()->attach($user->id);
+        $chat->users()->attach($f_user->id);
 
         return new ChatResource($chat);
 
@@ -74,7 +68,7 @@ class ChatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, string $id)
+    public function show(ChatShowRequest $request, string $id)
     {
         $chat = Chat::find($id);
         if($chat == null || $request->user()->chats->where('id', $chat->id)->first() == null) return response(null, 403);

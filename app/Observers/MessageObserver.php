@@ -10,9 +10,7 @@ class MessageObserver
     
     public function created(Message $message): void
     {
-        dd('hiii');
         broadcast(new MessageSentEvent($message->chat))->toOthers();
-        dd('hello');
     }
 
     

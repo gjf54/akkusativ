@@ -7,6 +7,7 @@ import NavbarLink from "./NavbarLink.vue";
 import Pattern from "./Pattern.vue";
 import Button from "./Button.vue";
 import SearchBar from "./SearchBar.vue";
+import ChatBar from "./ChatBar.vue";
 
 export default [
     Navbar,
@@ -18,4 +19,5 @@ export default [
     FormInput,
     Button,
     SearchBar,
+    ChatBar,
 ];

@@ -16,12 +16,12 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::get('/user/{login}', [UserController::class, 'show'])->middleware('auth:sanctum');
+Route::get('/users/{login}', [UserController::class, 'show'])->middleware('auth:sanctum');
 
 Route::apiResource('/chats', ChatController::class)->middleware('auth:sanctum');
 Route::apiResource('/messages', MessageController::class)->middleware('auth:sanctum');
 
-Route::get('chats/user/{login}', [ChatController::class, 'is_exists'])->middleware('auth:sanctum');
+Route::get('chats/users/{login}', [ChatController::class, 'is_exists'])->middleware('auth:sanctum');
 
 Route::prefix('/auth')->group(function () {
     Route::post('/register', [AuthController::class, 'register'])->middleware('guest');

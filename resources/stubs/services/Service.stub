@@ -1,0 +1,13 @@
+<?php
+
+namespace {{ serviceNamespace }};
+
+use App\Services\Service;
+
+class {{ serviceName }} extends Service
+{
+    public function __construct()
+    {
+        //
+    }
+}

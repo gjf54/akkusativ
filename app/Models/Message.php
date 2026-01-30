@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+
 
 #[ObservedBy(MessageObserver::class)]
 class Message extends Model
@@ -25,8 +25,8 @@ class Message extends Model
     protected $dateFormat = 'Y/m/d H:i:s';
 
 
-    public function chat() : MorphTo {
-        return $this->morphTo();
+    public function chat() : BelongsTo {
+        return $this->belongsTo(Chat::class);
     }
     
 
