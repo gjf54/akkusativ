@@ -27,22 +27,10 @@ services:
       - ./docker/database/data:/var/lib/mysql
     env_file:
       - ./docker/database/database.env
-  composer:
-    build: 
-      context: docker/dockerfiles
-      dockerfile: composer.dockerfile
-    volumes:
-      - ./:/var/www
   worker:
     build:
       context: docker/dockerfiles
       dockerfile: worker.dockerfile
     volumes:
       - ./:/var/www
-  # npm:
-  #   build:
-  #     context: docker/dockerfiles
-  #     dockerfile: npm.dockerfile
-  #   volumes:
-  #     - ./:/app
 

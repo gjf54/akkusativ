@@ -104,11 +104,11 @@ export default {
 
       if(this.message.length < 1) return;
 
-      this.chat.messages.push({
-        message: this.message,
-        user_login: this.login,
-      });
-      document.getElementById('last_message_link').click();
+      // this.chat.messages.push({
+      //   message: this.message,
+      //   user_login: this.login,
+      // });
+      // document.getElementById('last_message_link').click();
 
       axios.post('/api/messages', {
         user_login: auth.get_user(),
