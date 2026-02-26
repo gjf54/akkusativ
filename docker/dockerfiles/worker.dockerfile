@@ -4,4 +4,4 @@ WORKDIR /var/www/
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql sockets
 
-CMD ["php", "artisan", "queue:work"]
+CMD ["php", "artisan", "queue:work", "--tries=10"]

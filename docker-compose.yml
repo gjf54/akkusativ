@@ -1,5 +1,7 @@
 services:
+
   nginx:
+    container_name: akkusativ-nginx
     image: nginx:stable
     ports:
       - '443:443'
@@ -10,16 +12,20 @@ services:
       - ./docker/nginx/ssl:/etc/nginx/ssl
     depends_on:
       - php
-      - mysql
+
   php:
+    container_name: akkusativ-php
     build: 
-      context: docker/dockerfiles/php
-      dockerfile: php.dockerfile
+      dockerfile: docker/dockerfiles/php.dockerfile
     volumes:
       - ./:/var/www
     expose:
       - '9000'
+    depends_on:
+      - mysql
+
   mysql:
+    container_name: akkusativ-mysql
     image: mysql:8.0
     ports:
       - '3316:3306'
@@ -27,10 +33,22 @@ services:
       - ./docker/database/data:/var/lib/mysql
     env_file:
       - ./docker/database/database.env
+
   worker:
+    container_name: akkusativ-worker
     build:
-      context: docker/dockerfiles
-      dockerfile: worker.dockerfile
+      dockerfile: docker/dockerfiles/worker.dockerfile
     volumes:
       - ./:/var/www
+    depends_on:
+      - php
+      - mysql
+
+  node:
+    image: node:24
+    container_name: akkusativ-node
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    command: tail -f /dev/null 
 

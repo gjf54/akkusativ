@@ -1,0 +1,23 @@
+services:
+
+  worker:
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_CONNECTION=mysql
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "php", "artisan", "queue:status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  mysql:
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
